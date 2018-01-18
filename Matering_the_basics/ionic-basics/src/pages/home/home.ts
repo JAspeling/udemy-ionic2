@@ -13,7 +13,21 @@ export class HomePage {
   }
 
   onGoToUsers() : void {
-    this.navCtrl.push(UsersPage);
+    let err = (e) => {
+      console.log('Access Denied, argument was ' + e);
+    }
+    this.navCtrl.push(UsersPage).then((result) => {
+      if (result) {
+        console.log('Can enter');
+      } else {
+        err(result);
+      }
+    })
+    // push request was rejected
+    .catch((error) => {
+      console.log('from Catch');
+      err(error);
+    });
   }
   
 }
