@@ -1,0 +1,37 @@
+<!--
+  Generated template for the QuotesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{quoteGroup.category | uppercase}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card *ngFor="let quote of quoteGroup.quotes; let index = index">
+
+        <ion-card-header>
+            # {{ index + 1 }}
+        </ion-card-header>
+      
+        <ion-card-content>
+          <p>{{ quote.text }}</p>
+          <p class="author">{{ quote.person }}</p>
+          
+          <!-- Add card content here! -->
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col text-right>
+            <button *ngIf="!isFavourite(quote)" ion-button clear large small (click)="onAddToFavourites(quote)">Favourite</button>
+            <button *ngIf="isFavourite(quote)" ion-button clear large small color="danger" (click)="onRemoveFromFavourites(quote)">Unfavourite</button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+</ion-content>
