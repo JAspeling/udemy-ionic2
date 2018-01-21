@@ -1,25 +1,23 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the SettingsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage } from 'ionic-angular';
+import { Toggle } from 'ionic-angular/components/toggle/toggle';
+import { SettingsService } from '../../services/settings.service';
 
 @IonicPage()
 @Component({
   selector: 'page-settings',
-  templateUrl: 'settings.html',
+  templateUrl: 'settings.html'
 })
 export class SettingsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private settingsService : SettingsService) {
+    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsPage');
+  onToggle(event: Toggle): void {
+    this.settingsService.toggleBackground();
   }
 
+  checkAltBackground(): boolean {
+    return this.settingsService.isAltBackground();
+  }
 }
