@@ -1,7 +1,8 @@
-import { RecipesPage } from './../pages/recipes/recipes';
-import { Ingredient } from './../classes/Ingredient';
 import { Injectable } from '@angular/core';
+
 import { Recipe } from '../classes/recipe';
+import { Ingredient } from './../classes/Ingredient';
+
 @Injectable()
 export class RecipeService {
   private recipes: Recipe[] = [];

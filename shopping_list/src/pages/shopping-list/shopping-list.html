@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Shopping List</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu" ></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -22,7 +27,8 @@
   <ion-list>
     <ion-item-sliding *ngFor="let item of ingredients">
       <ion-item>
-        <h3>{{item.name}} {{item.amount}}</h3>
+        <h3>{{item.name}}</h3>
+        <ion-note> {{item.amount}}</ion-note>
       </ion-item>
       <ion-item-options side="right">
           <button ion-button color="danger" (click)="removeIngredient(item)">Remove</button>
